@@ -19,9 +19,9 @@ export default defineConfig<TestOptions>({
   reporter: [
     process.env.CI ? ["dot"] : ["list"],
     [
-      "argos-ci/playwright/reporter",
+      "@argos-ci/playwright/reporter",
       {
-      uploadToArgos: !!process.env.CI,
+        uploadToArgos: !!process.env.CI,
       },
     ],
     ['json', {outputFile: 'test-results/jsonReport.json'}],
