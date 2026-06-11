@@ -8,6 +8,8 @@ require('dotenv').config();
 
 
 export default defineConfig<TestOptions>({
+  // Look for test files in the "tests" directory, relative to this configuration file.
+  testDir: './tests',
   timeout: 10000,
   globalTimeout: 60000,
   expect:{
@@ -15,6 +17,7 @@ export default defineConfig<TestOptions>({
     toMatchSnapshot: {maxDiffPixels: 50}
   },
 
+  testMatch: '**/*.spec.ts', // Or adjust this pattern if your test files are named differently
   retries: 1,
   reporter: [
     process.env.CI ? ["dot"] : ["list"],
